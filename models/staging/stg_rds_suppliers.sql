@@ -1,5 +1,5 @@
 WITH source as (
-    SELECT * FROM "PAGILA_INC"."NORTHWINDS_RDS_PUBLIC"."SUPPLIERS"
+    SELECT * FROM {{ source('RDS', 'SUPPLIERS')}}
 ),
 renamed as (
     SELECT supplier_id, company_name,
@@ -17,3 +17,6 @@ renamed as (
     FROM source
    )
 select * FROM renamed
+
+
+
