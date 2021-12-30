@@ -2,7 +2,7 @@ WITH contacts as (
     SELECT * FROM {{ source('HUBSPOT', 'CONTACTS')}}
 ),
 companies as (
-    SELECT * FROM dbt_azimmerman.stg_hubspot_companies
+    SELECT * FROM {{ ref('stg_hubspot_companies')}}
 ),
 renamed as (
     SELECT CONCAT('hubspot-', HUBSPOT_ID) as contact_ID, 
