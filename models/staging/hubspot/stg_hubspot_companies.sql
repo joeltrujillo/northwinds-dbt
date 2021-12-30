@@ -1,4 +1,4 @@
-WITH source as (
+sWITH source as (
     SELECT * FROM {{ source('HUBSPOT', 'CONTACTS')}}
 ),
 renamed as (
